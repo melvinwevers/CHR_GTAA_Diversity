@@ -24,23 +24,6 @@ Based on **Faith's Phylogenetic Diversity** and **Chao1 unseen diversity estimat
    - High efficiency = small specialized collections with conceptual breadth
    - Low efficiency = massive collections with repetitive content
 
-### Interpretation Guidelines
-
-- **Lower-Right Quadrant**: High Coverage + Low Completeness
-  - Collection touches many domains but is under-sampled in each
-  - Good candidate for targeted expansion
-
-- **Lower-Left Quadrant**: Low Coverage + Low Completeness  
-  - Collection has both institutional blind spots AND incomplete sampling
-  - Requires comprehensive review
-
-- **Upper-Left Quadrant**: Low Coverage + High Completeness
-  - Collection thoroughly documents its narrow domain
-  - Low coverage reflects institutional focus, not sampling bias
-
-- **Upper-Right Quadrant**: High Coverage + High Completeness
-  - Excellent coverage and depth across conceptual space
-
 ## Project Structure
 
 ```
