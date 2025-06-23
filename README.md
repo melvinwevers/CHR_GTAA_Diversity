@@ -61,3 +61,9 @@ GTAA_PD/
     ├── test_unseenpd.py               # Testing utilities
     └── unseen_pd.py                   # Unseen diversity estimation
 ```
+## Installation using UV
+1. `curl -LsSf https://astral.sh/uv/install.sh | sh`
+2. navigate to project directory
+3. `uv sync` 
+4. `uv run jupyter notebook archival_bias_detection.ipynb`
+
