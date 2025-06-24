@@ -24,6 +24,23 @@ Based on **Faith's Phylogenetic Diversity** and **Chao1 unseen diversity estimat
    - High efficiency = small specialized collections with conceptual breadth
    - Low efficiency = massive collections with repetitive content
 
+### Interpretation Guidelines
+
+- **Lower-Right Quadrant**: High Coverage + Low Completeness
+  - Collection touches many domains but is under-sampled in each
+  - Good candidate for targeted expansion
+
+- **Lower-Left Quadrant**: Low Coverage + Low Completeness  
+  - Collection has both institutional blind spots AND incomplete sampling
+  - Requires comprehensive review
+
+- **Upper-Left Quadrant**: Low Coverage + High Completeness
+  - Collection thoroughly documents its narrow domain
+  - Low coverage reflects institutional focus, not sampling bias
+
+- **Upper-Right Quadrant**: High Coverage + High Completeness
+  - Excellent coverage and depth across conceptual space
+
 ## Project Structure
 
 ```
@@ -32,7 +49,7 @@ GTAA_PD/
 ├── archival_bias_detection.ipynb      # Main analysis notebook
 ├── data/
 │   ├── external/
-│   │   └── gtaa_melvin.csv            # GTAA vocabulary data
+│   │   └── gtaa_ontology.csv            # GTAA vocabulary data
 │   ├── raw/                           # Raw archival data in JSON
 │   └── processed/                     # Processed data in Parquet format
 ├── results/                           # Analysis outputs
@@ -47,6 +64,7 @@ GTAA_PD/
 ## Installation using UV
 1. `curl -LsSf https://astral.sh/uv/install.sh | sh`
 2. navigate to project directory
+3. add data to `data`. You can skip the creation of the parquet file with metadata from the raw JSONS and just add the `photo_archive.parquet` file to data/processed and the `gtaa_ontology.csv` to `data/external`
 3. `uv sync` 
 4. `uv run jupyter notebook archival_bias_detection.ipynb`
 
