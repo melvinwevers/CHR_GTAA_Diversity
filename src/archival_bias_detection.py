@@ -439,7 +439,14 @@ class ArchivalBiasDetector:
                 'unseen_pd': unseen_pd,
                 'coverage_ratio': coverage_ratio,
                 'completeness_ratio': completeness_ratio,
-                'efficiency_ratio': efficiency_ratio
+                'efficiency_ratio': efficiency_ratio,
+                # Add confidence interval data
+                'ci_lower': unseen_result.get('CI_lo', None),
+                'ci_upper': unseen_result.get('CI_hi', None),
+                'g1': unseen_result.get('g1', None),
+                'g2': unseen_result.get('g2', None),
+                'total_incidences': unseen_result.get('total_incidences', None),
+                'total_branches': unseen_result.get('total_branches', None)
             })
         
         return {
