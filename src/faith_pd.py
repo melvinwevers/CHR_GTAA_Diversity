@@ -3,6 +3,18 @@
 faith_pd.py - Faith's Phylogenetic Diversity calculations and caching
 
 This module handles the core Faith's PD calculations and caching for the Dutch National Archives diversity analysis.
+
+Two PD calculation approaches are provided:
+
+1. MINIMUM SPANNING PATH PD (default): 
+   - PD = sum of branch lengths in the minimum spanning path connecting all subjects
+   - This implementation is also used for unseen diversity estimation
+   - Used by default in this archival bias detection context
+
+2. SCIKIT-BIO PD (optional):
+   - PD = sum of branch lengths for all nodes with observed descendants
+   - Includes all supporting branches, not just minimal connecting path
+   - Available as alternative for biodiversity-style analysis
 """
 
 import networkx as nx
@@ -42,7 +54,8 @@ class FaithPDCalculator:
                 self._cache = dict(zip(cache_df['subjects_key'], cache_df['faith_pd']))
                 
                 # Load collection and creator caches if available
-                if 'collection_key' in cache_df.columns:
+                collection_key_exists = 'collection_key' in cache_df.columns
+                if collection_key_exists:
                     for _, row in cache_df.iterrows():
                         collection_key = row.get('collection_key')
                         if pd.notna(collection_key) and isinstance(collection_key, str):
@@ -51,7 +64,8 @@ class FaithPDCalculator:
                                 'coverage': row.get('collection_coverage', 1.0)
                             }
                 
-                if 'creator_key' in cache_df.columns:
+                creator_key_exists = 'creator_key' in cache_df.columns
+                if creator_key_exists:
                     for _, row in cache_df.iterrows():
                         creator_key = row.get('creator_key')
                         if pd.notna(creator_key) and isinstance(creator_key, str):
@@ -64,9 +78,9 @@ class FaithPDCalculator:
                 self._cache = dict(zip(cache_df['subjects_key'], cache_df['faith_pd']))
             
             print(f"📦 Loaded {len(self._cache):,} cached Faith's PD values from {self.cache_file}")
-            if self._collection_cache:
+            if len(self._collection_cache) > 0:
                 print(f"📦 Loaded {len(self._collection_cache):,} cached collection-level values")
-            if self._creator_cache:
+            if len(self._creator_cache) > 0:
                 print(f"📦 Loaded {len(self._creator_cache):,} cached creator-level values")
             
         except Exception as e:
@@ -184,27 +198,100 @@ class FaithPDCalculator:
         
         return result
 
-    def calculate_faith_pd(self, subjects: List[str]) -> float:
+    def calculate_faith_pd(self, subjects: List[str], method: str = 'minimum_spanning') -> float:
         """
         Calculate Faith's Phylogenetic Diversity for a set of subjects.
         
-        Faith's PD is the sum of branch lengths in the minimal subtree that 
-        connects all subjects to the root, following the scikit-bio approach.
+        Two methods are available:
         
-        The correct formula is:
-        PD = sum(branch_lengths * (counts_by_node > 0))
-        where counts_by_node indicates how many observed taxa descend from each node.
+        1. 'minimum_spanning' (default): Minimum spanning path approach
+           - PD = sum of branch lengths in the minimum spanning path connecting all subjects
+           - Same implementation is used  for unseen diversity estimation
+           
+        2. 'scikit_bio': Modern Faith's PD approach
+           - PD = sum of branch lengths for all nodes with observed descendants
+           - Includes all supporting branches, not just minimal connecting path
+        
+        Args:
+            subjects: List of subject labels
+            method: 'minimum_spanning' (default) or 'scikit_bio'
+            
+        Returns:
+            Faith's PD value (sum of branch lengths)
+        """
+        if method == 'minimum_spanning':
+            return self._calculate_minimum_spanning_pd(subjects)
+        elif method == 'scikit_bio':
+            return self._calculate_scikit_bio_pd(subjects)
+        else:
+            raise ValueError(f"Unknown method: {method}. Use 'minimum_spanning' or 'scikit_bio'")
+
+    def _calculate_minimum_spanning_pd(self, subjects: List[str]) -> float:
+        """
+        Calculate PD using minimum spanning path approach.
         
         Args:
             subjects: List of subject labels
             
         Returns:
-            Faith's PD value (sum of branch lengths)
+            PD value (sum of branch lengths in minimum spanning path)
         """
         if not subjects:
             return 0.0
         
-        # Faith's PD calculation following scikit-bio approach
+        # Filter subjects that exist in the graph
+        valid_subjects = [s for s in subjects if s in self.graph.nodes]
+        if not valid_subjects:
+            return 0.0
+        
+        # Find the minimum spanning path connecting all subjects
+        # This is the set of branches needed to connect all observed subjects
+        spanning_branches = set()
+        
+        # For each pair of subjects, find the path between them
+        for i, subject1 in enumerate(valid_subjects):
+            for subject2 in valid_subjects[i+1:]:
+                try:
+                    # Find shortest path between these two subjects
+                    path = nx.shortest_path(self.graph, subject1, subject2)
+                    
+                    # Add all branches in this path to the spanning set
+                    for j in range(len(path) - 1):
+                        branch = (path[j], path[j + 1])
+                        spanning_branches.add(branch)
+                        
+                except nx.NetworkXNoPath:
+                    # If no path exists, try reverse direction
+                    try:
+                        path = nx.shortest_path(self.graph, subject2, subject1)
+                        for j in range(len(path) - 1):
+                            branch = (path[j], path[j + 1])
+                            spanning_branches.add(branch)
+                    except nx.NetworkXNoPath:
+                        # If still no path, subjects are disconnected
+                        continue
+        
+        # Calculate total PD as sum of branch lengths in spanning path
+        total_pd = 0.0
+        for parent, child in spanning_branches:
+            edge_length = self.graph.edges[parent, child].get('length', 1.0)
+            total_pd += edge_length
+        
+        return total_pd
+
+    def _calculate_scikit_bio_pd(self, subjects: List[str]) -> float:
+        """
+        Calculate Faith's PD using scikit-bio approach.
+        
+        Args:
+            subjects: List of subject labels
+            
+        Returns:
+            Faith's PD value (sum of all supporting branch lengths)
+        """
+        if not subjects:
+            return 0.0
+        
         # Filter subjects that exist in the graph
         valid_subjects = [s for s in subjects if s in self.graph.nodes]
         if not valid_subjects:
