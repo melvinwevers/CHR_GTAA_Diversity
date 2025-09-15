@@ -1,0 +1,126 @@
+COMPREHENSIVE PAPER STATISTICS REPORT
+======================================================================
+
+1. DATASET OVERVIEW:
+   • Collections analyzed: 16
+   • Data source: GTAA archival collections
+
+2. COVERAGE RATIO STATISTICS:
+   • Range: 0.0023 to 0.6681 (0.23% to 66.81%)
+   • Mean: 0.2094 (20.94%)
+   • Median: 0.1311 (13.11%)
+   • Standard Deviation: 0.1872
+   • Q1 (25th percentile): 0.0798 (7.98%)
+   • Q3 (75th percentile): 0.3190 (31.90%)
+   • Skewness: 1.13 (Right-skewed)
+
+3. COMPLETENESS RATIO STATISTICS:
+   • Range: 0.8801 to 1.0000 (88.01% to 100.00%)
+   • Mean: 0.9345 (93.45%)
+   • Median: 0.9300 (93.00%)
+   • Standard Deviation: 0.0318
+   • Q1 (25th percentile): 0.9166 (91.66%)
+   • Q3 (75th percentile): 0.9505 (95.05%)
+   • Skewness: 0.21 (Right-skewed)
+
+4. EFFICIENCY RATIO STATISTICS:
+   • Range: 0.0007 to 0.1198
+   • Mean: 0.0470
+   • Median: 0.0344
+   • Standard Deviation: 0.0347
+   • Q1 (25th percentile): 0.0247
+   • Q3 (75th percentile): 0.0610
+   • Skewness: 0.89 (Right-skewed)
+
+5. UNSEEN PHYLOGENETIC DIVERSITY WITH CONFIDENCE INTERVALS:
+   • Collections with valid CI data: 15 of 16
+   • Unseen PD Range: 17.0 to 114.8
+   • Unseen PD Mean: 46.1 ± 26.1
+   • Unseen PD Median: 42.0
+   • CI Width Range: 31.6 to 85.2
+   • CI Width Mean: 52.8 ± 14.1
+   • CI Width Median: 53.6
+
+   COLLECTIONS WITH TIGHTEST CONFIDENCE INTERVALS (most reliable estimates):
+   1. Fotocollectie Anefo / RVD Londen Positieven
+      Unseen PD: 17.0 [95% CI: 198.4, 230.1] (width: 31.6)
+   2. Fotocollectie Deli Maatschappij
+      Unseen PD: 19.5 [95% CI: 181.7, 216.6] (width: 34.9)
+   3. Fotocollectie Anefo / Londen
+      Unseen PD: 20.9 [95% CI: 203.2, 241.5] (width: 38.2)
+
+   COLLECTIONS WITH WIDEST CONFIDENCE INTERVALS (least reliable estimates):
+   1. Fotocollectie Elsevier
+      Unseen PD: 75.1 [95% CI: 1418.8, 1482.3] (width: 63.5)
+   2. Fotocollectie Dienst voor Legercontacten Indonesië
+      Unseen PD: 68.4 [95% CI: 585.7, 656.2] (width: 70.5)
+   3. Fotocollectie Rijksvoorlichtingsdienst Eigen
+      Unseen PD: 114.8 [95% CI: 1439.9, 1525.1] (width: 85.2)
+
+6. COLLECTION PHYLOGENETIC DIVERSITY STATISTICS:
+   • Range: 8.0 to 2337.0
+   • Mean: 732.3
+   • Median: 458.5
+   • Standard Deviation: 655.0
+   • Q1 (25th percentile): 279.0
+   • Q3 (75th percentile): 1115.8
+   • Skewness: 1.13
+
+7. COLLECTION ARCHETYPE ANALYSIS:
+   • Median thresholds: Coverage = 0.131, Completeness = 0.930
+   • Comprehensive Collections (high coverage, high completeness): 5
+   • Broad but Under-sampled (high coverage, low completeness): 3
+   • Narrow but Thorough (low coverage, high completeness): 3
+   • Institutional Blind Spots (low coverage, low completeness): 5
+
+   DETAILED BREAKDOWN:
+   Comprehensive Collections:
+      • Fotocollectie Anefo: Coverage=0.668, Completeness=0.974
+      • Fotocollectie Van de Poll: Coverage=0.435, Completeness=0.973
+      • Fotocollectie Elsevier: Coverage=0.434, Completeness=0.953
+      • Fotocollectie Spaarnestad Onderwerpen: Coverage=0.281, Completeness=0.946
+      • Fotocollectie Nederlandse Heidemaatschappij: Coverage=0.157, Completeness=0.950
+   Broad but Under-sampled:
+      • Fotocollectie Rijksvoorlichtingsdienst Eigen: Coverage=0.434, Completeness=0.930
+      • Fotocollectie Dienst voor Legercontacten Indonesië: Coverage=0.196, Completeness=0.909
+      • Fotocollectie Eerste Wereldoorlog: Coverage=0.138, Completeness=0.916
+   Narrow but Thorough:
+      • Fotocollectie Anefo / RVD Londen Positieven: Coverage=0.080, Completeness=0.942
+      • Fotocollectie Anefo / Londen: Coverage=0.080, Completeness=0.930
+      • KNVB Fotocollectie: Coverage=0.002, Completeness=1.000
+   Institutional Blind Spots:
+      • Kantoor voor Voorlichting en Radio Omroep Nederlands Nieuw Guinea: Coverage=0.124, Completeness=0.917
+      • Collectie 558 Ph. C. Visser: Coverage=0.096, Completeness=0.880
+      • Fotocollectie Arbeidsinspectie: Coverage=0.089, Completeness=0.923
+      • Fotocollectie RVD / Koninklijk Huis: Coverage=0.069, Completeness=0.885
+      • Fotocollectie Deli Maatschappij: Coverage=0.067, Completeness=0.923
+
+8. COLLECTION SIZE STATISTICS:
+   • Range: 1,015 to 397,084 images
+   • Mean: 61,088 images
+   • Median: 5,952 images
+   • Standard Deviation: 128,029
+   • Q1 (25th percentile): 1,926
+   • Q3 (75th percentile): 34,454
+
+9. LATEX TABLE DATA:
+   \begin{tabular}{lcccc}
+   \toprule
+   Statistic & Coverage & Completeness & Efficiency & Collection PD \\
+   \midrule
+   Min & 0.0023 & 0.8801 & 0.0007 & 8.0 \\
+   Max & 0.6681 & 1.0000 & 0.1198 & 2337.0 \\
+   Mean & 0.2094 & 0.9345 & 0.0470 & 732.3 \\
+   Median & 0.1311 & 0.9300 & 0.0344 & 458.5 \\
+   Std Dev & 0.1872 & 0.0318 & 0.0347 & 655.0 \\
+   \bottomrule
+   \end{tabular}
+
+10. KEY CORRECTIONS FOR PAPER:
+   • Change '15 collections' to '16 collections'
+   • Coverage ratio mean should be 20.94% (not 21.88%)
+   • Coverage ratio median should be 13.11% (not 13.81%)
+   • Coverage ratio skewness should be 1.13 (not 1.47)
+   • Completeness ratio mean should be 0.9345 (not 0.9352)
+   • Completeness ratio std should be 0.0318 (not 0.0421)
+   • Completeness ratio range should be 0.8801–1.0000

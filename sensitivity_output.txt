@@ -1,0 +1,113 @@
+Loading data and building graph...
+Building GTAA vocabulary graph...
+Building GTAA vocabulary graph...
+  Adding edges to graph...
+Processing edges:   0%|          | 0/3442 [00:00<?, ?it/s]Processing edges:  53%|█████▎    | 1835/3442 [00:00<00:00, 18347.48it/s]Processing edges: 100%|██████████| 3442/3442 [00:00<00:00, 18929.58it/s]
+  Adding 3498 unique nodes...
+Adding nodes:   0%|          | 0/3498 [00:00<?, ?it/s]Adding nodes: 100%|██████████| 3498/3498 [00:00<00:00, 2649751.74it/s]
+  Connecting 251 root nodes to dummy root...
+Graph built: 3499 nodes, 3693 edges
+Loading data from data/processed/photos_archive.parquet...
+Loaded 991,372 records
+Deserializing subjects_list from JSON strings...
+Deserializing persons from JSON strings...
+Deserializing locations_standardized from JSON strings...
+991,372 records have subjects
+Calculating PD rankings for each branch length scheme...
+  Scheme: uniform
+  Scheme: random
+  Scheme: depth
+
+Spearman correlations between collection rankings:
+  uniform vs random: 0.998
+  uniform vs depth: 0.998
+  random vs depth: 0.996
+
+uniform PD_hat values (unique count: 24):
+                                           collection       PD_hat
+0                                 Fotocollectie Anefo  2428.481661
+1        Fotocollectie Rijksvoorlichtingsdienst Eigen  1547.200936
+2                              Fotocollectie Elsevier  1510.185229
+3                           Fotocollectie Van de Poll  1499.301381
+4               Fotocollectie Spaarnestad Onderwerpen   924.065730
+5   Fotocollectie Dienst voor Legercontacten Indon...   644.559046
+6         Fotocollectie Nederlandse Heidemaatschappij   484.530807
+7   Kantoor voor Voorlichting en Radio Omroep Nede...   410.744442
+8                   Fotocollectie Eerste Wereldoorlog   406.366747
+9                         Collectie 558 Ph. C. Visser   294.220916
+10                     Fotocollectie Arbeidsinspectie   255.394395
+11        Fotocollectie Anefo / RVD Londen Positieven   222.109567
+12                       Fotocollectie Anefo / Londen   218.736214
+13                Fotocollectie RVD / Koninklijk Huis   209.517618
+14                    Fotocollectie Deli Maatschappij   200.545172
+15                           Fotocollectie Van Houten    98.488208
+16                      Fotocollectie Rijkswaterstaat    82.491616
+17                                       NEFIS en CMI    27.500000
+18                  Fotocollectie Elsevier Buitenland    26.035714
+19  Fotocollectie Rijksvoorlichtingsdienst Eigen [...    16.897805
+20                 Collectie 066 De Constant Rebecque    11.896552
+21  Fotocollectie Rijksvoorlichtingsdienst Eigen [...    11.166322
+22                                 KNVB Fotocollectie     6.999771
+23                                                        0.000000
+24                           Fotocollectie RVD Londen     0.000000
+25              Fotocollectiie Afdrukken ANEFO Rousel     0.000000
+
+random PD_hat values (unique count: 24):
+                                           collection       PD_hat
+0                                 Fotocollectie Anefo  3009.339090
+1        Fotocollectie Rijksvoorlichtingsdienst Eigen  1903.147417
+2                              Fotocollectie Elsevier  1879.222746
+3                           Fotocollectie Van de Poll  1849.931125
+4               Fotocollectie Spaarnestad Onderwerpen  1139.479861
+5   Fotocollectie Dienst voor Legercontacten Indon...   796.369261
+6         Fotocollectie Nederlandse Heidemaatschappij   594.144253
+7                   Fotocollectie Eerste Wereldoorlog   527.113368
+8   Kantoor voor Voorlichting en Radio Omroep Nede...   511.577277
+9                         Collectie 558 Ph. C. Visser   359.527275
+10                     Fotocollectie Arbeidsinspectie   322.468870
+11        Fotocollectie Anefo / RVD Londen Positieven   286.862992
+12                Fotocollectie RVD / Koninklijk Huis   274.881787
+13                       Fotocollectie Anefo / Londen   271.270561
+14                    Fotocollectie Deli Maatschappij   246.519648
+15                           Fotocollectie Van Houten   122.201987
+16                      Fotocollectie Rijkswaterstaat   106.724931
+17                                       NEFIS en CMI    37.581305
+18                  Fotocollectie Elsevier Buitenland    31.829020
+19                 Collectie 066 De Constant Rebecque    21.455983
+20  Fotocollectie Rijksvoorlichtingsdienst Eigen [...    18.586456
+21  Fotocollectie Rijksvoorlichtingsdienst Eigen [...    14.146636
+22                                 KNVB Fotocollectie     8.222389
+23                                                        0.000000
+24                           Fotocollectie RVD Londen     0.000000
+25              Fotocollectiie Afdrukken ANEFO Rousel     0.000000
+
+depth PD_hat values (unique count: 24):
+                                           collection       PD_hat
+0                                 Fotocollectie Anefo  1770.376019
+1        Fotocollectie Rijksvoorlichtingsdienst Eigen  1149.266410
+2                              Fotocollectie Elsevier  1130.711715
+3                           Fotocollectie Van de Poll  1101.924639
+4               Fotocollectie Spaarnestad Onderwerpen   714.685062
+5   Fotocollectie Dienst voor Legercontacten Indon...   480.877951
+6         Fotocollectie Nederlandse Heidemaatschappij   370.926619
+7                   Fotocollectie Eerste Wereldoorlog   328.083173
+8   Kantoor voor Voorlichting en Radio Omroep Nede...   326.174487
+9                         Collectie 558 Ph. C. Visser   231.713352
+10                     Fotocollectie Arbeidsinspectie   203.862187
+11                       Fotocollectie Anefo / Londen   177.507575
+12        Fotocollectie Anefo / RVD Londen Positieven   167.028832
+13                Fotocollectie RVD / Koninklijk Huis   163.885126
+14                    Fotocollectie Deli Maatschappij   162.450320
+15                           Fotocollectie Van Houten    82.547841
+16                      Fotocollectie Rijkswaterstaat    66.677836
+17                                       NEFIS en CMI    23.694173
+18                  Fotocollectie Elsevier Buitenland    22.333604
+19  Fotocollectie Rijksvoorlichtingsdienst Eigen [...    12.484435
+20  Fotocollectie Rijksvoorlichtingsdienst Eigen [...     8.720127
+21                 Collectie 066 De Constant Rebecque     7.404215
+22                                 KNVB Fotocollectie     6.499771
+23                                                        0.000000
+24                           Fotocollectie RVD Londen     0.000000
+25              Fotocollectiie Afdrukken ANEFO Rousel     0.000000
+
+Sensitivity analysis complete. See above for ranking stability across branch length schemes.

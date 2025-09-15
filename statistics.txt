@@ -1,0 +1,135 @@
+COMPREHENSIVE PAPER STATISTICS REPORT
+======================================================================
+
+1. DATASET OVERVIEW:
+   • Collections analyzed: 16
+   • Data source: GTAA archival collections
+
+2. COVERAGE RATIO STATISTICS:
+   • Range: 0.0006 to 0.6215 (0.06% to 62.15%)
+   • Mean: 0.1417 (14.17%)
+   • Median: 0.0585 (5.85%)
+   • Standard Deviation: 0.1792
+   • Q1 (25th percentile): 0.0225 (2.25%)
+   • Q3 (75th percentile): 0.2011 (20.11%)
+   • Skewness: 1.47 (Right-skewed)
+
+3. COMPLETENESS RATIO STATISTICS:
+   • Range: 0.6789 to 1.0000 (67.89% to 100.00%)
+   • Mean: 0.8453 (84.53%)
+   • Median: 0.8376 (83.76%)
+   • Standard Deviation: 0.0981
+   • Q1 (25th percentile): 0.7807 (78.07%)
+   • Q3 (75th percentile): 0.9161 (91.61%)
+   • Skewness: -0.03 (Left-skewed)
+
+4. EFFICIENCY RATIO STATISTICS:
+   • Range: 0.0002 to 0.1115
+   • Mean: 0.0303
+   • Median: 0.0163
+   • Standard Deviation: 0.0344
+   • Q1 (25th percentile): 0.0066
+   • Q3 (75th percentile): 0.0393
+   • Skewness: 1.22 (Right-skewed)
+
+5. UNSEEN PHYLOGENETIC DIVERSITY WITH CONFIDENCE INTERVALS:
+   • Collections with valid CI data: 15 of 16
+   • Unseen PD Range: 17.0 to 114.8
+   • Unseen PD Mean: 46.1 ± 26.1
+   • Unseen PD Median: 42.0
+   • CI Width Range: 31.6 to 85.2
+   • CI Width Mean: 52.8 ± 14.1
+   • CI Width Median: 53.6
+
+   COLLECTIONS WITH TIGHTEST CONFIDENCE INTERVALS (most reliable estimates):
+   1. Fotocollectie Anefo / RVD Londen Positieven
+      Unseen PD: 17.0 [95% CI: 198.4, 230.1] (width: 31.6)
+   2. Fotocollectie Deli Maatschappij
+      Unseen PD: 19.5 [95% CI: 181.7, 216.6] (width: 34.9)
+   3. Fotocollectie Anefo / Londen
+      Unseen PD: 20.9 [95% CI: 203.2, 241.5] (width: 38.2)
+
+   COLLECTIONS WITH WIDEST CONFIDENCE INTERVALS (least reliable estimates):
+   1. Fotocollectie Elsevier
+      Unseen PD: 75.1 [95% CI: 1418.8, 1482.3] (width: 63.5)
+   2. Fotocollectie Dienst voor Legercontacten Indonesië
+      Unseen PD: 68.4 [95% CI: 585.7, 656.2] (width: 70.5)
+   3. Fotocollectie Rijksvoorlichtingsdienst Eigen
+      Unseen PD: 114.8 [95% CI: 1439.9, 1525.1] (width: 85.2)
+
+6. COLLECTION PHYLOGENETIC DIVERSITY STATISTICS:
+   • Range: 2.0 to 2018.0
+   • Mean: 460.1
+   • Median: 190.0
+   • Standard Deviation: 582.0
+   • Q1 (25th percentile): 73.0
+   • Q3 (75th percentile): 653.0
+   • Skewness: 1.47
+   • Outlier identified: Fotocollectie Anefo (PD = 2018.0)
+
+   NORMALIZED DISTRIBUTION (excluding outlier):
+   • Range: 2.0 to 1145.0
+   • Mean: 356.3
+   • Median: 168.0
+   • Standard Deviation (σ): 421.8
+   • Q1 (25th percentile): 71.0
+   • Q3 (75th percentile): 417.5
+   • Skewness: 1.21
+
+7. COLLECTION ARCHETYPE ANALYSIS:
+   • Median thresholds: Coverage = 0.059, Completeness = 0.838
+   • Comprehensive Collections (high coverage, high completeness): 7
+   • Broad but Under-sampled (high coverage, low completeness): 1
+   • Narrow but Thorough (low coverage, high completeness): 1
+   • Institutional Blind Spots (low coverage, low completeness): 7
+
+8. COLLECTION SIZE STATISTICS:
+   • Range: 1,015 to 397,084 images
+   • Mean: 61,088 images
+   • Median: 5,952 images
+   • Standard Deviation: 128,029
+   • Q1 (25th percentile): 1,926
+   • Q3 (75th percentile): 34,454
+
+9. CORRELATION ANALYSIS:
+   • Collection Size vs Coverage Ratio:
+     Pearson r = 0.584, p = 0.018
+     Statistically significant (α = 0.05)
+   • Collection Size vs Completeness Ratio:
+     Pearson r = 0.411, p = 0.114
+     Not statistically significant (α = 0.05)
+   • Collection Size vs Efficiency Ratio:
+     Pearson r = 0.500, p = 0.049
+     Statistically significant (α = 0.05)
+   • Collection Size vs Coverage Ratio (Spearman):
+     Spearman ρ = 0.844, p = 0.000
+
+10. COLLECTION ARCHETYPE LATEX TABLE:
+\begin{table}[h]
+  \centering
+  \caption{Cataloging Practice Archetypes}
+  \begin{tabular}{lcccp{4cm}}
+    \toprule
+    \textbf{Archetype} & \textbf{Coverage} & \textbf{Completeness} & \textbf{Collections} & \textbf{Characteristics} \\
+    \midrule
+    Comprehensive Catalogers & High & High & 7 & Anefo (0.621, 0.971), Rijksvoorlichtingsdienst Eigen (0.353, 0.909), Elsevier (0.348, 0.938) \\
+    Broad Surveyors & High & Low & 1 & Dienst voor Legercontacten Indonesië (0.104, 0.832) \\
+    Focused Specialists & Low & High & 1 & KNVB Fotocollectie (0.001, 1.000) \\
+    Limited Scope & Low & Low & 7 & Eerste Wereldoorlog (0.052, 0.792), plus 6 others \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:cataloging_archetypes}
+\end{table}
+
+11. SUMMARY STATISTICS LATEX TABLE:
+   \begin{tabular}{lcccc}
+   \toprule
+   Statistic & Coverage & Completeness & Efficiency & Collection PD \\
+   \midrule
+   Min & 0.0006 & 0.6789 & 0.0002 & 2.0 \\
+   Max & 0.6215 & 1.0000 & 0.1115 & 2018.0 \\
+   Mean & 0.1417 & 0.8453 & 0.0303 & 460.1 \\
+   Median & 0.0585 & 0.8376 & 0.0163 & 190.0 \\
+   Std Dev & 0.1792 & 0.0981 & 0.0344 & 582.0 \\
+   \bottomrule
+   \end{tabular}

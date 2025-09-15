@@ -285,10 +285,11 @@ def generate_comprehensive_statistics():
         print(f"\n10. COLLECTION ARCHETYPE LATEX TABLE:")
         print(f"\\begin{{table}}[h]")
         print(f"  \\centering")
-        print(f"  \\caption{{Collection Performance Archetypes}}")
-        print(f"  \\begin{{tabular}}{{|l|c|c|c|p{{4cm}}|}}")
-        print(f"    \\hline")
-        print(f"    \\textbf{{Archetype}} & \\textbf{{Coverage}} & \\textbf{{Completeness}} & \\textbf{{n}} & \\textbf{{Representative Collections}} \\\\ \\hline")
+        print(f"  \\caption{{Cataloging Practice Archetypes}}")
+        print(f"  \\begin{{tabular}}{{lcccp{{4cm}}}}")
+        print(f"    \\toprule")
+        print(f"    \\textbf{{Archetype}} & \\textbf{{Coverage}} & \\textbf{{Completeness}} & \\textbf{{Collections}} & \\textbf{{Characteristics}} \\\\")
+        print(f"    \\midrule")
         
         # Comprehensive Collections
         comprehensive_examples = []
@@ -297,39 +298,40 @@ def generate_comprehensive_statistics():
             comprehensive_examples.append(f"{name} ({row['coverage_ratio']:.3f}, {row['completeness_ratio']:.3f})")
         comprehensive_str = ", ".join(comprehensive_examples)
         
-        print(f"    Comprehensive Collections & High & High & {len(comprehensive)} & {comprehensive_str} \\\\ \\hline")
+        print(f"    Comprehensive Catalogers & High & High & {len(comprehensive)} & {comprehensive_str} \\\\")
         
         # Broad but Under-sampled
         broad_examples = []
-        for _, row in broad_undersampled.iterrows():
+        for _, row in broad_undersampled.head(2).iterrows():
             name = str(row['subcollection']).replace('Fotocollectie ', '')
             broad_examples.append(f"{name} ({row['coverage_ratio']:.3f}, {row['completeness_ratio']:.3f})")
         broad_str = ", ".join(broad_examples)
         
-        print(f"    Broad but but less complete & High & Low & {len(broad_undersampled)} & {broad_str} \\\\ \\hline")
+        print(f"    Broad Surveyors & High & Low & {len(broad_undersampled)} & {broad_str} \\\\")
         
         # Narrow but Thorough
         narrow_examples = []
-        for _, row in narrow_thorough.iterrows():
+        for _, row in narrow_thorough.head(2).iterrows():
             name = str(row['subcollection']).replace('Fotocollectie ', '')
             narrow_examples.append(f"{name} ({row['coverage_ratio']:.3f}, {row['completeness_ratio']:.3f})")
         narrow_str = ", ".join(narrow_examples)
         
-        print(f"    Narrow but Thorough & Low & High & {len(narrow_thorough)} & {narrow_str} \\\\ \\hline")
+        print(f"    Focused Specialists & Low & High & {len(narrow_thorough)} & {narrow_str} \\\\")
         
         # Institutional Blind Spots
         blind_examples = []
-        for _, row in institutional_blind.head(3).iterrows():
+        for _, row in institutional_blind.head(1).iterrows():
             name = str(row['subcollection']).replace('Fotocollectie ', '')
             blind_examples.append(f"{name} ({row['coverage_ratio']:.3f}, {row['completeness_ratio']:.3f})")
         blind_str = ", ".join(blind_examples)
-        if len(institutional_blind) > 3:
-            blind_str += f", and {len(institutional_blind) - 3} others"
+        if len(institutional_blind) > 1:
+            blind_str += f", plus {len(institutional_blind) - 1} others"
         
-        print(f"    Limited Scope and Completeness & Low & Low & {len(institutional_blind)} & {blind_str} \\\\ \\hline")
+        print(f"    Limited Scope & Low & Low & {len(institutional_blind)} & {blind_str} \\\\")
         
+        print(f"    \\bottomrule")
         print(f"  \\end{{tabular}}")
-        print(f"  \\label{{tab:collection_archetypes}}")
+        print(f"  \\label{{tab:cataloging_archetypes}}")
         print(f"\\end{{table}}")
 
         # Summary statistics table for LaTeX
