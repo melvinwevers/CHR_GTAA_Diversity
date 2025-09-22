@@ -164,7 +164,7 @@ cython_debug/
 
 # Data Science specific
 # Large data files
-*.parquet
+
 *.h5
 *.hdf5
 *.pickle
@@ -209,7 +209,7 @@ Thumbs.db
 # Keep small example data but ignore large datasets
 data/raw/
 !data/raw/.gitkeep
-data/processed/
+#data/processed/
 !data/processed/.gitkeep
 
 # Keep results structure but ignore actual result files
@@ -233,6 +233,5 @@ secrets.json
 
 # Cache directories
 .cache/
-cache/ 
+cache/
 
-data/

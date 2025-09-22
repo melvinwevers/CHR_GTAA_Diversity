@@ -1,6 +1,0 @@
-# Updated Coverage and Completeness Patterns Section
-
-\subsection{Coverage and Completeness Patterns}
-Coverage ratios demonstrate strong heterogeneity (range: 0.0023–0.6681; $\sigma$ = 0.1872), with positive skewness (1.13), indicating most collections use a relatively limited GTAA subsets while few employ exceptionally broad terminological ranges. This aligns with expectations for specialized subcollections, which focus on domain-relevant terms rather than attempting universal vocabulary usage. 
-
-Completeness ratios exhibit tight clustering (range: 0.8801–1.0000; $\sigma$ = 0.0318), exhibiting slight positive skewness (0.21), contrasting sharply with the broad coverage variation. Collections consistently demonstrate near-exhaustive application of available GTAA terms within their terminological boundaries, with unseen diversity estimates showing 88.01-100\% utilization of apparently relevant terms. The KNVB Fotocollectie exemplifies this coverage-completeness contrast: using only 0.23\% of GTAA vocabulary (sports-related terms), it achieves 100\% completeness within the sports hierarchy. 

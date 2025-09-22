@@ -1,12 +1,6 @@
 # GTAA Phylogenetic Diversity Analysis
 
-This project analyzes archival bias patterns in Dutch National Archives collections using **Faith's Phylogenetic Diversity (PD)** metrics applied to the **GTAA (General Thesaurus for Audiovisual Archives)** vocabulary.
-
-## Overview
-
-The project quantifies institutional bias by calculating how well different archival subcollections cover the conceptual space defined by the GTAA vocabulary. It uses phylogenetic diversity metrics borrowed from biodiversity research to measure conceptual diversity and identify gaps in archival preservation.
-
-## Key Concepts
+This repository accompanies a paper that investigates archival bias patterns in collections from the Dutch National Archives using Faith's Phylogenetic Diversity (PD) metrics applied to the GTAA (General Thesaurus for Audiovisual Archives) vocabulary. The project quantifies institutional bias by assessing how well various archival subcollections cover the conceptual space defined by the GTAA vocabulary. By borrowing phylogenetic diversity metrics from biodiversity research, the analysis measures conceptual diversity and identifies gaps in archival preservation.
 
 ### Methodology
 Based on **Faith's Phylogenetic Diversity** and **Chao1 unseen diversity estimation**, the analysis calculates three key ratios:
@@ -24,34 +18,18 @@ Based on **Faith's Phylogenetic Diversity** and **Chao1 unseen diversity estimat
    - High efficiency = small specialized collections with conceptual breadth
    - Low efficiency = massive collections with repetitive content
 
-### Interpretation Guidelines
-
-- **Lower-Right Quadrant**: High Coverage + Low Completeness
-  - Collection touches many domains but is under-sampled in each
-  - Good candidate for targeted expansion
-
-- **Lower-Left Quadrant**: Low Coverage + Low Completeness  
-  - Collection has both institutional blind spots AND incomplete sampling
-  - Requires comprehensive review
-
-- **Upper-Left Quadrant**: Low Coverage + High Completeness
-  - Collection thoroughly documents its narrow domain
-  - Low coverage reflects institutional focus, not sampling bias
-
-- **Upper-Right Quadrant**: High Coverage + High Completeness
-  - Excellent coverage and depth across conceptual space
 
 ## Project Structure
 
 ```
 GTAA_PD/
-├── README.md                           # This file
+├── README.md                          # This file
 ├── archival_bias_detection.ipynb      # Main analysis notebook
 ├── data/
 │   ├── external/
-│   │   └── gtaa_ontology.csv            # GTAA vocabulary data
-│   ├── raw/                           # Raw archival data in JSON
+│   │   └── gtaa_ontology.csv          # GTAA vocabulary data
 │   └── processed/                     # Processed data in Parquet format
+│   │   └── photos_archives.parquet    # NA photo metadata in parquet format
 ├── results/                           # Analysis outputs
 └── src/                               # Source code modules
     ├── archival_bias_detection.py     # Main analysis class (includes ontology analysis)
@@ -65,6 +43,6 @@ GTAA_PD/
 1. `curl -LsSf https://astral.sh/uv/install.sh | sh`
 2. navigate to project directory
 3. add data to `data`. You can skip the creation of the parquet file with metadata from the raw JSONS and just add the `photo_archive.parquet` file to data/processed and the `gtaa_ontology.csv` to `data/external`
-3. `uv sync` 
+3. `uv sync`
 4. `uv run jupyter notebook archival_bias_detection.ipynb`
 
